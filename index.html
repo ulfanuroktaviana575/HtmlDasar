@@ -9,13 +9,14 @@
 </head>
 
 <body>
-    
-    <img src ="marsyaandthebear.png" align="right"></img>
+    <p>selamat datang di web html sederhana , selamat mencoba</p>
+
+    <img src="marsyaandthebear.png" align="right"></img>
     <center>
         <h1> SELAMAT DATANG DI APLIKASI ULFAH</h1>
         <br>
         <p>Tanggal :</p>
-       
+
         <p id="tgl"></p>
         <p>kami memberikan diskon terbaik</p>
         <p>1. diskon untuk member sebesar 5%</p>
@@ -24,338 +25,324 @@
 
         <br>
         <br>
-        
-    
-    <table border="1" id="table_atas">
-        <tr>
-            <th>No .</th>
-            <th>Nama Makanan</th>
-            <th>Harga Makanan</th>
-            <th>Porsi</th>
-            <th>total harga makanan</th>
-        </tr>
-    </table>
-    <table>
-        <tr>
-            <th>Total :</th>
-            <th id="total">-</th>
-           
-        </tr>
-    </table>
 
-    <br>
-    <br>
 
-    <input type="radio" name="pelanggan" id="pelanggan_ya" value="ya">
-    <label>Member</label>
-    <input type="radio" name="pelanggan" id="pelanggan_tidak" value="tidak" checked>
-    <label>Bukan Member</label>
-    <br>
-    <select id="nama_makanan">
-        <option value="1">Ayam Goreng</option>
-        <option value="2">Bebek Goreng</option>
-        <option value="3">bakso Biasa</option>
-        <option value="4">bakso Istimewa</option>
-        <option value="5">bakso Beranak</option>
-        <option value="6">bakso Meletus</option>
-        <option value="7">bakso Semeru</option>
-        <option value="8">bakso Ikan</option>
-        <option value="9">lalapan</option>
-        <option value="10">Tahu Telor</option>
+        <table border="1" id="table_atas">
+            <tr>
+                <th>No .</th>
+                <th>Nama Makanan</th>
+                <th>Harga Makanan</th>
+                <th>Porsi</th>
+                <th>total harga makanan</th>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>Total :</th>
+                <th id="total">-</th>
 
-    </select>
-    <input type="number" id="porsi" min="1" value="1" style="width: 50px;border-style: solid;" required>
-    <button type="button" id="btn-tambah" onclick="tambah()">Tambah Pesanan</button>
+            </tr>
+        </table>
 
-    <p id="selamat_diskon" style="display: none;">Selamat anda adalah member, mendapat diskon 5%</p>
-    <p id="selamat_weekend" style="display: none;">Selamat mendapat potongan harga 10% saat weekend. rumah makan kami memberikan potongan harga terbanyak</p>
-    <script>
-        var baris = 1;
-        var total = 0;
-        var dt = new Date();
-        function tambah() {
-            var nama_makan = document.getElementById('nama_makanan').value;
-            var jml_porsi = document.getElementById('porsi').value;
-            var is_pelanggan = document.getElementById('pelanggan_ya').checked;
-            if (nama_makan == 1) {
+        <br>
+        <br>
 
-                var tbl = document.getElementById('table_atas');
-                var row = tbl.insertRow(baris);
-                var no = row.insertCell(0);
-                var nama = row.insertCell(1);
-                var harga = row.insertCell(2);
-                var porsi = row.insertCell(3);
-                var total_harga = row.insertCell(4);
-                if (dt.getDay() < 5) {
-                    var hrg = 10000;
-                } else {
-                    var hrg = 9800;
-                    document.getElementById('selamat_weekend').style.display = 'block';
+        <input type="radio" name="pelanggan" id="pelanggan_ya" value="ya">
+        <label>Member</label>
+        <input type="radio" name="pelanggan" id="pelanggan_tidak" value="tidak" checked>
+        <label>Bukan Member</label>
+        <br>
+        <select id="nama_makanan">
+            <option value="1">Ayam Goreng</option>
+            <option value="2">Bebek Goreng</option>
+            <option value="3">bakso Biasa</option>
+            <option value="4">bakso Istimewa</option>
+            <option value="5">bakso Beranak</option>
+            <option value="6">bakso Meletus</option>
+            <option value="7">bakso Semeru</option>
+            <option value="8">bakso Ikan</option>
+            <option value="9">lalapan</option>
+            <option value="10">Tahu Telor</option>
+
+        </select>
+        <input type="number" id="porsi" min="1" value="1" style="width: 50px;border-style: solid;" required>
+        <button type="button" id="btn-tambah" onclick="tambah()">Tambah Pesanan</button>
+
+        <p id="selamat_diskon" style="display: none;">Selamat anda adalah member, mendapat diskon 5%</p>
+        <p id="selamat_weekend" style="display: none;">Selamat mendapat potongan harga 10% saat weekend. rumah makan
+            kami memberikan potongan harga terbanyak</p>
+        <script>
+            var baris = 1;
+            var total = 0;
+            var dt = new Date();
+
+            function tambah() {
+                var nama_makan = document.getElementById('nama_makanan').value;
+                var jml_porsi = document.getElementById('porsi').value;
+                var is_pelanggan = document.getElementById('pelanggan_ya').checked;
+                if (nama_makan == 1) {
+
+                    var tbl = document.getElementById('table_atas');
+                    var row = tbl.insertRow(baris);
+                    var no = row.insertCell(0);
+                    var nama = row.insertCell(1);
+                    var harga = row.insertCell(2);
+                    var porsi = row.insertCell(3);
+                    var total_harga = row.insertCell(4);
+                    if (dt.getDay() < 5) {
+                        var hrg = 10000;
+                    } else {
+                        var hrg = 9800;
+                        document.getElementById('selamat_weekend').style.display = 'block';
+                    }
+                    if (is_pelanggan) {
+                        hrg -= hrg * 5 / 100;
+                        document.getElementById('selamat_diskon').style.display = 'block';
+                    }
+
+                    no.innerHTML = baris;
+                    nama.innerHTML = 'Ayam Goreng';
+                    harga.innerHTML = 'Rp. ' + hrg;
+                    porsi.innerHTML = jml_porsi;
+                    total_harga.innerHTML = 'Rp. ' + (jml_porsi * hrg);
+                    total += jml_porsi * hrg;
+
+
+                } else if (nama_makan == 2) {
+                    var tbl = document.getElementById('table_atas');
+                    var row = tbl.insertRow(baris);
+                    var no = row.insertCell(0);
+                    var nama = row.insertCell(1);
+                    var harga = row.insertCell(2);
+                    var porsi = row.insertCell(3);
+                    var total_harga = row.insertCell(4);
+                    if (dt.getDay() < 5) {
+                        var hrg = 20000;
+                    } else {
+                        var hrg = 19600;
+                        document.getElementById('selamat_weekend').style.display = 'block';
+                    }
+                    if (is_pelanggan) {
+                        hrg -= hrg * 5 / 100;
+                        document.getElementById('selamat_diskon').style.display = 'block';
+                    }
+                    no.innerHTML = baris;
+                    nama.innerHTML = 'Bebek Goreng';
+                    harga.innerHTML = 'Rp. ' + hrg;
+                    porsi.innerHTML = jml_porsi;
+                    total_harga.innerHTML = 'Rp. ' + (jml_porsi * hrg);
+                    total += jml_porsi * hrg;
+                } else if (nama_makan == 3) {
+                    var tbl = document.getElementById('table_atas');
+                    var row = tbl.insertRow(baris);
+                    var no = row.insertCell(0);
+                    var nama = row.insertCell(1);
+                    var harga = row.insertCell(2);
+                    var porsi = row.insertCell(3);
+                    var total_harga = row.insertCell(4);
+                    if (dt.getDay() < 5) {
+                        var hrg = 10000;
+                    } else {
+                        var hrg = 9800;
+                        document.getElementById('selamat_weekend').style.display = 'block';
+                    }
+                    if (is_pelanggan) {
+                        hrg -= hrg * 5 / 100;
+                        document.getElementById('selamat_diskon').style.display = 'block';
+                    }
+                    no.innerHTML = baris;
+                    nama.innerHTML = 'Bakso Biasa';
+                    harga.innerHTML = 'Rp. ' + hrg;
+                    porsi.innerHTML = jml_porsi;
+                    total_harga.innerHTML = 'Rp. ' + (jml_porsi * hrg);
+                    total += jml_porsi * hrg;
+                } else if (nama_makan == 4) {
+                    var tbl = document.getElementById('table_atas');
+                    var row = tbl.insertRow(baris);
+                    var no = row.insertCell(0);
+                    var nama = row.insertCell(1);
+                    var harga = row.insertCell(2);
+                    var porsi = row.insertCell(3);
+                    var total_harga = row.insertCell(4);
+                    if (dt.getDay() < 5) {
+                        var hrg = 10000;
+                    } else {
+                        var hrg = 9800;
+                        document.getElementById('selamat_weekend').style.display = 'block';
+                    }
+                    if (is_pelanggan) {
+                        hrg -= hrg * 5 / 100;
+                        document.getElementById('selamat_diskon').style.display = 'block';
+                    }
+                    no.innerHTML = baris;
+                    nama.innerHTML = 'Bakso Istimewa';
+                    harga.innerHTML = 'Rp. ' + hrg;
+                    porsi.innerHTML = jml_porsi;
+                    total_harga.innerHTML = 'Rp. ' + (jml_porsi * hrg);
+                    total += jml_porsi * hrg;
+                } else if (nama_makan == 5) {
+                    var tbl = document.getElementById('table_atas');
+                    var row = tbl.insertRow(baris);
+                    var no = row.insertCell(0);
+                    var nama = row.insertCell(1);
+                    var harga = row.insertCell(2);
+                    var porsi = row.insertCell(3);
+                    var total_harga = row.insertCell(4);
+                    if (dt.getDay() < 5) {
+                        var hrg = 11000;
+                    } else {
+                        var hrg = 10780;
+                        document.getElementById('selamat_weekend').style.display = 'block';
+                    }
+                    if (is_pelanggan) {
+                        hrg -= hrg * 5 / 100;
+                        document.getElementById('selamat_diskon').style.display = 'block';
+                    }
+                    no.innerHTML = baris;
+                    nama.innerHTML = 'Bakso Beranak';
+                    harga.innerHTML = 'Rp. ' + hrg;
+                    porsi.innerHTML = jml_porsi;
+                    total_harga.innerHTML = 'Rp. ' + (jml_porsi * hrg);
+                    total += jml_porsi * hrg;
+                } else if (nama_makan == 6) {
+                    var tbl = document.getElementById('table_atas');
+                    var row = tbl.insertRow(baris);
+                    var no = row.insertCell(0);
+                    var nama = row.insertCell(1);
+                    var harga = row.insertCell(2);
+                    var porsi = row.insertCell(3);
+                    var total_harga = row.insertCell(4);
+                    if (dt.getDay() < 5) {
+                        var hrg = 13000;
+                    } else {
+                        var hrg = 129740;
+                        document.getElementById('selamat_weekend').style.display = 'block';
+                    }
+                    if (is_pelanggan) {
+                        hrg -= hrg * 5 / 100;
+                        document.getElementById('selamat_diskon').style.display = 'block';
+                    }
+                    no.innerHTML = baris;
+                    nama.innerHTML = 'Bakso Meletus';
+                    harga.innerHTML = 'Rp. ' + hrg;
+                    porsi.innerHTML = jml_porsi;
+                    total_harga.innerHTML = 'Rp. ' + (jml_porsi * hrg);
+                    total += jml_porsi * hrg;
+                } else if (nama_makan == 7) {
+                    var tbl = document.getElementById('table_atas');
+                    var row = tbl.insertRow(baris);
+                    var no = row.insertCell(0);
+                    var nama = row.insertCell(1);
+                    var harga = row.insertCell(2);
+                    var porsi = row.insertCell(3);
+                    var total_harga = row.insertCell(4);
+                    if (dt.getDay() < 5) {
+                        var hrg = 15000;
+                    } else {
+                        var hrg = 14700;
+                        document.getElementById('selamat_weekend').style.display = 'block';
+                    }
+                    if (is_pelanggan) {
+                        hrg -= hrg * 5 / 100;
+                        document.getElementById('selamat_diskon').style.display = 'block';
+                    }
+                    no.innerHTML = baris;
+                    nama.innerHTML = 'Bakso Semeru';
+                    harga.innerHTML = 'Rp. ' + hrg;
+                    porsi.innerHTML = jml_porsi;
+                    total_harga.innerHTML = 'Rp. ' + (jml_porsi * hrg);
+                    total += jml_porsi * hrg;
+                } else if (nama_makan == 8) {
+                    var tbl = document.getElementById('table_atas');
+                    var row = tbl.insertRow(baris);
+                    var no = row.insertCell(0);
+                    var nama = row.insertCell(1);
+                    var harga = row.insertCell(2);
+                    var porsi = row.insertCell(3);
+                    var total_harga = row.insertCell(4);
+                    if (dt.getDay() < 5) {
+                        var hrg = 10000;
+                    } else {
+                        var hrg = 9800;
+                        document.getElementById('selamat_weekend').style.display = 'block';
+                    }
+                    if (is_pelanggan) {
+                        hrg -= hrg * 5 / 100;
+                        document.getElementById('selamat_diskon').style.display = 'block';
+                    }
+                    no.innerHTML = baris;
+                    nama.innerHTML = 'Bakso Ikan';
+                    harga.innerHTML = 'Rp. ' + hrg;
+                    porsi.innerHTML = jml_porsi;
+                    total_harga.innerHTML = 'Rp. ' + (jml_porsi * hrg);
+                    total += jml_porsi * hrg;
+                } else if (nama_makan == 9) {
+                    var tbl = document.getElementById('table_atas');
+                    var row = tbl.insertRow(baris);
+                    var no = row.insertCell(0);
+                    var nama = row.insertCell(1);
+                    var harga = row.insertCell(2);
+                    var porsi = row.insertCell(3);
+                    var total_harga = row.insertCell(4);
+                    if (dt.getDay() < 5) {
+                        var hrg = 10000;
+                    } else {
+                        var hrg = 9800;
+                        document.getElementById('selamat_weekend').style.display = 'block';
+                    }
+                    if (is_pelanggan) {
+                        hrg -= hrg * 5 / 100;
+                        document.getElementById('selamat_diskon').style.display = 'block';
+                    }
+                    no.innerHTML = baris;
+                    nama.innerHTML = 'Lalapan';
+                    harga.innerHTML = 'Rp. ' + hrg;
+                    porsi.innerHTML = jml_porsi;
+                    total_harga.innerHTML = 'Rp. ' + (jml_porsi * hrg);
+                    total += jml_porsi * hrg;
+                } else if (nama_makan == 10) {
+                    var tbl = document.getElementById('table_atas');
+                    var row = tbl.insertRow(baris);
+                    var no = row.insertCell(0);
+                    var nama = row.insertCell(1);
+                    var harga = row.insertCell(2);
+                    var porsi = row.insertCell(3);
+                    var total_harga = row.insertCell(4);
+                    if (dt.getDay() < 5) {
+                        var hrg = 10000;
+                    } else {
+                        var hrg = 9800;
+                        document.getElementById('selamat_weekend').style.display = 'block';
+                    }
+                    if (is_pelanggan) {
+                        hrg -= hrg * 5 / 100;
+                        document.getElementById('selamat_diskon').style.display = 'block';
+                    }
+                    no.innerHTML = baris;
+                    nama.innerHTML = 'Tahu Telor';
+                    harga.innerHTML = 'Rp. ' + hrg;
+                    porsi.innerHTML = jml_porsi;
+                    total_harga.innerHTML = 'Rp. ' + (jml_porsi * hrg);
+                    total += jml_porsi * hrg;
                 }
-                if (is_pelanggan) {
-                    hrg -= hrg * 5 / 100;
-                    document.getElementById('selamat_diskon').style.display = 'block';
-                }
-
-                no.innerHTML = baris;
-                nama.innerHTML = 'Ayam Goreng';
-                harga.innerHTML = 'Rp. ' + hrg;
-                porsi.innerHTML = jml_porsi;
-                total_harga.innerHTML = 'Rp. ' + (jml_porsi * hrg);
-                total += jml_porsi * hrg;
 
 
-            } else if (nama_makan == 2) {
-                var tbl = document.getElementById('table_atas');
-                var row = tbl.insertRow(baris);
-                var no = row.insertCell(0);
-                var nama = row.insertCell(1);
-                var harga = row.insertCell(2);
-                var porsi = row.insertCell(3);
-                var total_harga = row.insertCell(4);
-                if (dt.getDay() < 5) {
-                    var hrg = 20000;
-                } else {
-                    var hrg = 19600;
-                    document.getElementById('selamat_weekend').style.display = 'block';
-                }
-                if (is_pelanggan) {
-                    hrg -= hrg * 5 / 100;
-                    document.getElementById('selamat_diskon').style.display = 'block';
-                }
-                no.innerHTML = baris;
-                nama.innerHTML = 'Bebek Goreng';
-                harga.innerHTML = 'Rp. ' + hrg;
-                porsi.innerHTML = jml_porsi;
-                total_harga.innerHTML = 'Rp. ' + (jml_porsi * hrg);
-                total += jml_porsi * hrg;
+                baris++;
+                document.getElementById('total').innerHTML = 'Rp. ' + total;
             }
+            var hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+            document.getElementById('tgl').innerHTML = hari[dt.getDay()] + ', ' + dt.getDate() + '-' + dt.getMonth() +
+                '-' + dt.getFullYear();
 
-            else if (nama_makan == 3) {
-                var tbl = document.getElementById('table_atas');
-                var row = tbl.insertRow(baris);
-                var no = row.insertCell(0);
-                var nama = row.insertCell(1);
-                var harga = row.insertCell(2);
-                var porsi = row.insertCell(3);
-                var total_harga = row.insertCell(4);
-                if (dt.getDay() < 5) {
-                    var hrg = 10000;
-                } else {
-                    var hrg = 9800;
-                    document.getElementById('selamat_weekend').style.display = 'block';
-                }
-                if (is_pelanggan) {
-                    hrg -= hrg * 5 / 100;
-                    document.getElementById('selamat_diskon').style.display = 'block';
-                }
-                no.innerHTML = baris;
-                nama.innerHTML = 'Bakso Biasa';
-                harga.innerHTML = 'Rp. ' + hrg;
-                porsi.innerHTML = jml_porsi;
-                total_harga.innerHTML = 'Rp. ' + (jml_porsi * hrg);
-                total += jml_porsi * hrg;
-            }
+            document.body.style.backgroundColor = "pink";
+            //document.body.style.backgroundImage="url('img_tree.png')";
+            //document.body.style.background="#f3f3f3 url('img_tree.png') no-repeat right top";
+            //background-Image: url ('C:/User/asus/Pictures/food.png');
+            //<img src="food.png">
+        </script>
 
-            else if (nama_makan == 4) {
-                var tbl = document.getElementById('table_atas');
-                var row = tbl.insertRow(baris);
-                var no = row.insertCell(0);
-                var nama = row.insertCell(1);
-                var harga = row.insertCell(2);
-                var porsi = row.insertCell(3);
-                var total_harga = row.insertCell(4);
-                if (dt.getDay() < 5) {
-                    var hrg = 10000;
-                } else {
-                    var hrg = 9800;
-                    document.getElementById('selamat_weekend').style.display = 'block';
-                }
-                if (is_pelanggan) {
-                    hrg -= hrg * 5 / 100;
-                    document.getElementById('selamat_diskon').style.display = 'block';
-                }
-                no.innerHTML = baris;
-                nama.innerHTML = 'Bakso Istimewa';
-                harga.innerHTML = 'Rp. ' + hrg;
-                porsi.innerHTML = jml_porsi;
-                total_harga.innerHTML = 'Rp. ' + (jml_porsi * hrg);
-                total += jml_porsi * hrg;
-            }
-            else if (nama_makan == 5) {
-                var tbl = document.getElementById('table_atas');
-                var row = tbl.insertRow(baris);
-                var no = row.insertCell(0);
-                var nama = row.insertCell(1);
-                var harga = row.insertCell(2);
-                var porsi = row.insertCell(3);
-                var total_harga = row.insertCell(4);
-                if (dt.getDay() < 5) {
-                    var hrg = 11000;
-                } else {
-                    var hrg = 10780;
-                    document.getElementById('selamat_weekend').style.display = 'block';
-                }
-                if (is_pelanggan) {
-                    hrg -= hrg * 5 / 100;
-                    document.getElementById('selamat_diskon').style.display = 'block';
-                }
-                no.innerHTML = baris;
-                nama.innerHTML = 'Bakso Beranak';
-                harga.innerHTML = 'Rp. ' + hrg;
-                porsi.innerHTML = jml_porsi;
-                total_harga.innerHTML = 'Rp. ' + (jml_porsi * hrg);
-                total += jml_porsi * hrg;
-            }
-
-            else if (nama_makan == 6) {
-                var tbl = document.getElementById('table_atas');
-                var row = tbl.insertRow(baris);
-                var no = row.insertCell(0);
-                var nama = row.insertCell(1);
-                var harga = row.insertCell(2);
-                var porsi = row.insertCell(3);
-                var total_harga = row.insertCell(4);
-                if (dt.getDay() < 5) {
-                    var hrg = 13000;
-                } else {
-                    var hrg = 129740;
-                    document.getElementById('selamat_weekend').style.display = 'block';
-                }
-                if (is_pelanggan) {
-                    hrg -= hrg * 5 / 100;
-                    document.getElementById('selamat_diskon').style.display = 'block';
-                }
-                no.innerHTML = baris;
-                nama.innerHTML = 'Bakso Meletus';
-                harga.innerHTML = 'Rp. ' + hrg;
-                porsi.innerHTML = jml_porsi;
-                total_harga.innerHTML = 'Rp. ' + (jml_porsi * hrg);
-                total += jml_porsi * hrg;
-            }
-
-            else if (nama_makan == 7) {
-                var tbl = document.getElementById('table_atas');
-                var row = tbl.insertRow(baris);
-                var no = row.insertCell(0);
-                var nama = row.insertCell(1);
-                var harga = row.insertCell(2);
-                var porsi = row.insertCell(3);
-                var total_harga = row.insertCell(4);
-                if (dt.getDay() < 5) {
-                    var hrg = 15000;
-                } else {
-                    var hrg = 14700;
-                    document.getElementById('selamat_weekend').style.display = 'block';
-                }
-                if (is_pelanggan) {
-                    hrg -= hrg * 5 / 100;
-                    document.getElementById('selamat_diskon').style.display = 'block';
-                }
-                no.innerHTML = baris;
-                nama.innerHTML = 'Bakso Semeru';
-                harga.innerHTML = 'Rp. ' + hrg;
-                porsi.innerHTML = jml_porsi;
-                total_harga.innerHTML = 'Rp. ' + (jml_porsi * hrg);
-                total += jml_porsi * hrg;
-            }
-
-            else if (nama_makan == 8) {
-                var tbl = document.getElementById('table_atas');
-                var row = tbl.insertRow(baris);
-                var no = row.insertCell(0);
-                var nama = row.insertCell(1);
-                var harga = row.insertCell(2);
-                var porsi = row.insertCell(3);
-                var total_harga = row.insertCell(4);
-                if (dt.getDay() < 5) {
-                    var hrg = 10000;
-                } else {
-                    var hrg = 9800;
-                    document.getElementById('selamat_weekend').style.display = 'block';
-                }
-                if (is_pelanggan) {
-                    hrg -= hrg * 5 / 100;
-                    document.getElementById('selamat_diskon').style.display = 'block';
-                }
-                no.innerHTML = baris;
-                nama.innerHTML = 'Bakso Ikan';
-                harga.innerHTML = 'Rp. ' + hrg;
-                porsi.innerHTML = jml_porsi;
-                total_harga.innerHTML = 'Rp. ' + (jml_porsi * hrg);
-                total += jml_porsi * hrg;
-            }
-
-            else if (nama_makan == 9) {
-                var tbl = document.getElementById('table_atas');
-                var row = tbl.insertRow(baris);
-                var no = row.insertCell(0);
-                var nama = row.insertCell(1);
-                var harga = row.insertCell(2);
-                var porsi = row.insertCell(3);
-                var total_harga = row.insertCell(4);
-                if (dt.getDay() < 5) {
-                    var hrg = 10000;
-                } else {
-                    var hrg = 9800;
-                    document.getElementById('selamat_weekend').style.display = 'block';
-                }
-                if (is_pelanggan) {
-                    hrg -= hrg * 5 / 100;
-                    document.getElementById('selamat_diskon').style.display = 'block';
-                }
-                no.innerHTML = baris;
-                nama.innerHTML = 'Lalapan';
-                harga.innerHTML = 'Rp. ' + hrg;
-                porsi.innerHTML = jml_porsi;
-                total_harga.innerHTML = 'Rp. ' + (jml_porsi * hrg);
-                total += jml_porsi * hrg;
-            }
-
-            else if (nama_makan == 10) {
-                var tbl = document.getElementById('table_atas');
-                var row = tbl.insertRow(baris);
-                var no = row.insertCell(0);
-                var nama = row.insertCell(1);
-                var harga = row.insertCell(2);
-                var porsi = row.insertCell(3);
-                var total_harga = row.insertCell(4);
-                if (dt.getDay() < 5) {
-                    var hrg = 10000;
-                } else {
-                    var hrg = 9800;
-                    document.getElementById('selamat_weekend').style.display = 'block';
-                }
-                if (is_pelanggan) {
-                    hrg -= hrg * 5 / 100;
-                    document.getElementById('selamat_diskon').style.display = 'block';
-                }
-                no.innerHTML = baris;
-                nama.innerHTML = 'Tahu Telor';
-                harga.innerHTML = 'Rp. ' + hrg;
-                porsi.innerHTML = jml_porsi;
-                total_harga.innerHTML = 'Rp. ' + (jml_porsi * hrg);
-                total += jml_porsi * hrg;
-            }
-            
-           
-            baris++;
-            document.getElementById('total').innerHTML = 'Rp. ' + total;
-        }
-        var hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
-        document.getElementById('tgl').innerHTML = hari[dt.getDay()] + ', ' + dt.getDate() + '-' + dt.getMonth() + '-' + dt.getFullYear();
-        
-        document.body.style.backgroundColor="pink";
-        //document.body.style.backgroundImage="url('img_tree.png')";
-        //document.body.style.background="#f3f3f3 url('img_tree.png') no-repeat right top";
-        //background-Image: url ('C:/User/asus/Pictures/food.png');
-        //<img src="food.png">
-        
-        
-    </script>
-        
     </center>
-   
+
 </body>
 
 </html>
